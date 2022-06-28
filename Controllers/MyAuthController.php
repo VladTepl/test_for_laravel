@@ -20,14 +20,14 @@ use App\Models\User;
 
 class MyAuthController extends Controller    
 {
-	//фунция показывает форму для аунтефикации
+	//фунция показывает форму для аутентификации
 	
     public function showLogin()
 	{
 		return view('auth.login',['title'=>'login']);
 	}
 	
-	//фикция валидации и аунтефикации
+	//фикция валидации и аутентификации
 	
 	public function authenticate(Request $request)
 	{
@@ -86,16 +86,16 @@ class MyAuthController extends Controller
 				'password.min'=>'пароль должен быть не меньше 4 символов'
 				]); 
 				
-				// аунтефикация пользователя
+				// аутентификация пользователя
 				
 				 if (Auth::attempt($credentials,$request->get('remember')=='on' ? true : false)){
 					 
 					$request->session()->regenerate();
 
-					return redirect()->intended(); // направление при успешной аунтефикации на домашнюю страницу(на  страницу, с которой был редирект на аунтефикацию)
+					return redirect()->intended(); // направление при успешной аутентификации на домашнюю страницу(на  страницу, с которой был редирект на аутентификацию)
 					}
 
-					return redirect()->route('register')->withErrors([       //направление на авторицазию ,если аунтефикация не состоялась
+					return redirect()->route('register')->withErrors([       //направление на авторицазию ,если аутетификация не состоялась
 					'email' => 'Такого пользователя нет в базе данных.
 								Пройдите регистрацию.',
 						])->withInput();
