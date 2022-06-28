@@ -39,6 +39,9 @@ class RegisterController extends Controller
 				'password.min'=>'пароль должен быть не меньше 4 символов'
 				]); 
 				
+	    
+	    // сохранение данных пользователя в базу данных
+	    
 			$user=new User;
 			
 			$user->name=$request->name;
