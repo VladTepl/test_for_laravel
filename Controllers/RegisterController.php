@@ -54,7 +54,7 @@ class RegisterController extends Controller
 					 
 					$request->session()->regenerate();
 
-					return redirect()->intended(); // направление при успешной аунтефикации на домашнюю страницу(на  страницу, с которой был редирект на аунтефикацию)
+					return redirect()->intended(); // направление при успешной аутентификации на домашнюю страницу(на  страницу, с которой был редирект на аутетификацию)
 					}
 	}
 		
